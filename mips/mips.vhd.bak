@@ -1,0 +1,171 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mips is
+  -- Total de bits das entradas e saidas
+  generic ( larguraDados : natural := 32;
+        larguraEnderecos : natural := 32;
+        simulacao : boolean := TRUE -- para gravar na placa, altere de TRUE para FALSE
+  );
+  port   (
+    CLOCK_50 : in std_logic;
+	 Sinais_Controle: out std_logic_vector(11 downto 0);
+	 KEY: in std_logic_vector(3 downto 0); 
+	 ResultOp: out std_logic_vector(31 downto 0); 
+	 Dado_Lido1_Rs: out std_logic_vector(31 downto 0);
+	 Dado_Lido2_Rt: out std_logic_vector(31 downto 0); 
+	 Program_Counter: out std_logic_vector(31 downto 0); 
+	 EntradaB_ULA: out std_logic_vector(31 downto 0)
+	 
+  );
+end entity;
+
+
+architecture arquitetura of mips is
+
+	signal CLK : std_logic;
+
+	signal Entrada_ROM : std_logic_vector(31 downto 0);
+	signal Saida_ROM : std_logic_vector(31 downto 0);
+	
+	signal proxPC, proxPC2, proxPC3 : std_logic_vector (31 downto 0);	
+	
+	signal opCode, funct : std_logic_vector (5 downto 0);
+	signal Rs, Rt, Rd, shamt : std_logic_vector (4 downto 0); -- Rd = Rs op Rt
+	
+	signal dadoRs, dadoRt, dadoRd, Dado_Lido  : std_logic_vector(31 downto 0);
+	
+	signal habwr, habrd, BEQ, muxULA, muxRtIm, WrRegd, muxRtRd, Z, muxBEQJMP : std_logic;
+	signal ULActrl : std_logic_vector (3 downto 0);
+	
+	signal saidaMUXRTRD : std_logic_vector (4 downto 0);
+	signal sigExt, entradaULA_B, saidaULA, saidaMuxM, saidaInc2  : std_logic_vector(31 downto 0);
+
+
+begin
+gravar:  if simulacao generate
+CLK <= KEY(0);
+else generate
+detectorSub0: work.edgeDetector(bordaSubida)
+        port map (clk => CLOCK_50,
+		  entrada => (not KEY(0)),
+		  saida => CLK);
+end generate;			
+
+
+PC : entity work.registradorGenerico   generic map (larguraDados => larguraEnderecos)
+          port map (DIN => proxPC3, 
+			 DOUT => Entrada_ROM, 
+			 ENABLE => '1', 
+			 CLK => CLK, 
+			 RST => '0');
+			 
+
+incrementaPC :  entity work.somaConstante  generic map (larguraDados => larguraEnderecos, constante => 4)
+        port map( entrada => Entrada_ROM, 
+		  saida => proxPC);
+		  
+soma2 :  entity work.somaEntradas  generic map (larguraDados => larguraEnderecos)
+        port map( entrada1 => proxPC, 
+						entrada2 => sigExt(29 downto 0)&"00",
+						saida => saidaInc2);
+
+ROM : entity work.ROMMIPS   generic map (dataWidth => 32, addrWidth => 32)
+          port map (Endereco => Entrada_ROM,
+			 Dado => Saida_ROM);			 
+
+REGS : entity work.bancoRegistradores   generic map (larguraDados => 32, larguraEndBancoRegs => 5)
+          port map (clk => CLK,
+              enderecoA => Rs,
+				  enderecoB => Rt,
+				  enderecoC => saidaMUXRTRD,
+              dadoEscritaC => saidaMuxM,
+				  escreveC => WrRegd, 
+				  saidaA => dadoRs, 
+				  saidaB => dadoRt);
+				  
+			 
+DEC : entity work.decoderInstru
+		port map (opcode => opCode, 
+		funct => funct, 
+		saida => Sinais_Controle);	
+
+
+ULA1 : entity work.ULASomaSub  generic map(larguraDados => 32)
+          port map (entradaA => dadoRs, 
+			 entradaB => entradaULA_B, 
+			 saida => saidaULA,
+			 seletor => ULActrl,
+			 saida_z => Z);
+			 
+			 
+MUXREG :  entity work.muxGenerico2x1  generic map (larguraDados => 5)
+			 port map( entradaA_MUX => Rt,
+			 entradaB_MUX => Rd,
+			 seletor_MUX => muxRtRd,
+			 saida_MUX => saidaMUXRTRD);	
+			
+MUXIM :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
+			 port map( entradaA_MUX => dadoRt,
+			 entradaB_MUX => sigExt,
+			 seletor_MUX => muxRtIm,
+			 saida_MUX => entradaULA_B);	
+			 
+		
+MUXMEM :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
+			 port map( entradaA_MUX => saidaULA,
+			 entradaB_MUX => Dado_Lido,
+			 seletor_MUX => muxULA,
+			 saida_MUX => saidaMuxM);	
+			 
+MUXINC :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
+			 port map( entradaA_MUX => proxPC,
+			 entradaB_MUX => saidaInc2,
+			 seletor_MUX => BEQ and Z,
+			 saida_MUX => proxPC2);	
+			 
+MUXJMP :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
+			 port map( entradaA_MUX => proxPC2,
+			 entradaB_MUX => proxPC(31 downto 28) & Saida_ROM(25 downto 0) & "00",
+			 seletor_MUX => muxBEQJMP,
+			 saida_MUX => proxPC3);
+			 
+RAM : entity work.RAMMIPS
+		generic map (dataWidth => 32, addrWidth => 32)
+		port map (Endereco => saidaULA, 
+		we => habwr, 
+		re => habrd, 
+		habilita => '1',
+		clk => CLK,
+		Dado_in => dadoRt,
+		Dado_out => Dado_Lido
+		);
+		
+ExtSig : entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 16, larguraDadoSaida => 32)
+          port map (estendeSinal_IN => Saida_ROM(15 downto 0),
+						  estendeSinal_OUT =>  sigExt);
+		
+
+opCode <= Saida_ROM(31 downto 26); 
+Rs <= Saida_ROM(25 downto 21); 
+Rt <= Saida_ROM(20 downto 16); 
+Rd <= Saida_ROM(15 downto 11); 
+shamt <= Saida_ROM(10 downto 6);
+funct <= Saida_ROM(5 downto 0);
+			 
+habwr <= Sinais_Controle(0);
+habrd <= Sinais_Controle(1);
+BEQ <= Sinais_Controle(2);
+muxULA <= Sinais_Controle(3);
+ULActrl <= Sinais_Controle(7 downto 4);
+muxRtIm <= Sinais_Controle(8);
+WrRegd <= Sinais_Controle(9);
+muxRtRd <= Sinais_Controle(10);
+muxBEQJMP <= Sinais_Controle(11);
+   
+ResultOp <= saidaULA; 
+Dado_Lido1_Rs <= dadoRs; 
+Dado_Lido2_Rt <= dadoRt; 
+Program_Counter <= Entrada_ROM;
+EntradaB_ULA <= entradaULA_B; 
+end architecture;

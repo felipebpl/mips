@@ -1,0 +1,17 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity mux1bit4x1 is
+  -- Total de bits das entradas e saidas
+  port (
+    ent0_MUX, ent1_MUX, ent2_MUX, ent3_MUX : in std_logic;
+    seletor_MUX : in std_logic_vector(1 downto 0);
+    saida_MUX : out std_logic
+  );
+end entity;
+
+architecture comportamento of mux1bit4x1 is
+  begin
+    saida_MUX <= ent0_MUX when seletor_MUX = "00" else ent1_MUX when seletor_MUX = "01" else ent2_MUX 
+					when seletor_mux = "10" else ent3_MUX when seletor_mux = "11";
+end architecture;

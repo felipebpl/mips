@@ -1,0 +1,21 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;          -- Biblioteca IEEE para funções aritméticas
+
+entity somadorCompleto is
+    generic
+    (
+        larguraDados : natural := 32
+    );
+    port
+    (
+        entradaA, entradaB, vemUm: in STD_LOGIC_VECTOR((larguraDados-1) downto 0);
+        saida, vaiUm:  out STD_LOGIC_VECTOR((larguraDados-1) downto 0)
+    );
+end entity;
+
+architecture comportamento of somadorCompleto is
+    begin
+        saida <= (entradaA xor entradaB) xor vemUm;
+		  vaiUm <= (entradaA and entradaB) or ((entradaA xor entradaB) and vemUm); 
+end architecture;

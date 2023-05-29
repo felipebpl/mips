@@ -1,0 +1,1151 @@
+Analysis & Synthesis report for ULA
+Mon May 29 17:45:16 2023
+Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |ULA
+ 11. Parameter Settings for User Entity Instance: subtrator:BIT0|mux1bit:muxB
+ 12. Parameter Settings for User Entity Instance: subtrator:BIT1|mux1bit:muxB
+ 13. Parameter Settings for User Entity Instance: subtrator:BIT2|mux1bit:muxB
+ 14. Parameter Settings for User Entity Instance: subtrator:BIT3|mux1bit:muxB
+ 15. Parameter Settings for User Entity Instance: subtrator:BIT4|mux1bit:muxB
+ 16. Parameter Settings for User Entity Instance: subtrator:BIT5|mux1bit:muxB
+ 17. Parameter Settings for User Entity Instance: subtrator:BIT6|mux1bit:muxB
+ 18. Parameter Settings for User Entity Instance: subtrator:BIT7|mux1bit:muxB
+ 19. Parameter Settings for User Entity Instance: subtrator:BIT8|mux1bit:muxB
+ 20. Parameter Settings for User Entity Instance: subtrator:BIT9|mux1bit:muxB
+ 21. Parameter Settings for User Entity Instance: subtrator:BIT10|mux1bit:muxB
+ 22. Parameter Settings for User Entity Instance: subtrator:BIT11|mux1bit:muxB
+ 23. Parameter Settings for User Entity Instance: subtrator:BIT12|mux1bit:muxB
+ 24. Parameter Settings for User Entity Instance: subtrator:BIT13|mux1bit:muxB
+ 25. Parameter Settings for User Entity Instance: subtrator:BIT14|mux1bit:muxB
+ 26. Parameter Settings for User Entity Instance: subtrator:BIT15|mux1bit:muxB
+ 27. Parameter Settings for User Entity Instance: subtrator:BIT16|mux1bit:muxB
+ 28. Parameter Settings for User Entity Instance: subtrator:BIT17|mux1bit:muxB
+ 29. Parameter Settings for User Entity Instance: subtrator:BIT18|mux1bit:muxB
+ 30. Parameter Settings for User Entity Instance: subtrator:BIT19|mux1bit:muxB
+ 31. Parameter Settings for User Entity Instance: subtrator:BIT20|mux1bit:muxB
+ 32. Parameter Settings for User Entity Instance: subtrator:BIT21|mux1bit:muxB
+ 33. Parameter Settings for User Entity Instance: subtrator:BIT22|mux1bit:muxB
+ 34. Parameter Settings for User Entity Instance: subtrator:BIT23|mux1bit:muxB
+ 35. Parameter Settings for User Entity Instance: subtrator:BIT24|mux1bit:muxB
+ 36. Parameter Settings for User Entity Instance: subtrator:BIT25|mux1bit:muxB
+ 37. Parameter Settings for User Entity Instance: subtrator:BIT26|mux1bit:muxB
+ 38. Parameter Settings for User Entity Instance: subtrator:BIT27|mux1bit:muxB
+ 39. Parameter Settings for User Entity Instance: subtrator:BIT28|mux1bit:muxB
+ 40. Parameter Settings for User Entity Instance: subtrator:BIT29|mux1bit:muxB
+ 41. Parameter Settings for User Entity Instance: subtrator:BIT30|mux1bit:muxB
+ 42. Parameter Settings for User Entity Instance: subtrator31:BIT31|mux1bit:muxB
+ 43. Port Connectivity Checks: "subtrator31:BIT31"
+ 44. Port Connectivity Checks: "subtrator:BIT30"
+ 45. Port Connectivity Checks: "subtrator:BIT29"
+ 46. Port Connectivity Checks: "subtrator:BIT28"
+ 47. Port Connectivity Checks: "subtrator:BIT27"
+ 48. Port Connectivity Checks: "subtrator:BIT26"
+ 49. Port Connectivity Checks: "subtrator:BIT25"
+ 50. Port Connectivity Checks: "subtrator:BIT24"
+ 51. Port Connectivity Checks: "subtrator:BIT23"
+ 52. Port Connectivity Checks: "subtrator:BIT22"
+ 53. Port Connectivity Checks: "subtrator:BIT21"
+ 54. Port Connectivity Checks: "subtrator:BIT20"
+ 55. Port Connectivity Checks: "subtrator:BIT19"
+ 56. Port Connectivity Checks: "subtrator:BIT18"
+ 57. Port Connectivity Checks: "subtrator:BIT17"
+ 58. Port Connectivity Checks: "subtrator:BIT16"
+ 59. Port Connectivity Checks: "subtrator:BIT15"
+ 60. Port Connectivity Checks: "subtrator:BIT14"
+ 61. Port Connectivity Checks: "subtrator:BIT13"
+ 62. Port Connectivity Checks: "subtrator:BIT12"
+ 63. Port Connectivity Checks: "subtrator:BIT11"
+ 64. Port Connectivity Checks: "subtrator:BIT10"
+ 65. Port Connectivity Checks: "subtrator:BIT9"
+ 66. Port Connectivity Checks: "subtrator:BIT8"
+ 67. Port Connectivity Checks: "subtrator:BIT7"
+ 68. Port Connectivity Checks: "subtrator:BIT6"
+ 69. Port Connectivity Checks: "subtrator:BIT5"
+ 70. Port Connectivity Checks: "subtrator:BIT4"
+ 71. Port Connectivity Checks: "subtrator:BIT3"
+ 72. Port Connectivity Checks: "subtrator:BIT2"
+ 73. Port Connectivity Checks: "subtrator:BIT1"
+ 74. Post-Synthesis Netlist Statistics for Top Partition
+ 75. Elapsed Time Per Partition
+ 76. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon May 29 17:45:16 2023       ;
+; Quartus Prime Version           ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
+; Revision Name                   ; ULA                                         ;
+; Top-level Entity Name           ; ULA                                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 101                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; ULA                ; ULA                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation                             ; All                ;                    ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                               ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                        ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------+---------+
+; mux1bit.vhd                      ; yes             ; User VHDL File  ; C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit.vhd         ;         ;
+; ULA.vhd                          ; yes             ; User VHDL File  ; C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/ULA.vhd             ;         ;
+; subtrator31.vhd                  ; yes             ; User VHDL File  ; C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator31.vhd     ;         ;
+; subtrator.vhd                    ; yes             ; User VHDL File  ; C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator.vhd       ;         ;
+; somadorCompleto.vhd              ; yes             ; User VHDL File  ; C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/somadorCompleto.vhd ;         ;
+; mux1bit4x1.vhd                   ; yes             ; User VHDL File  ; C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd      ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary              ;
++---------------------------------------------+------------+
+; Resource                                    ; Usage      ;
++---------------------------------------------+------------+
+; Estimate of Logic utilization (ALMs needed) ; 74         ;
+;                                             ;            ;
+; Combinational ALUT usage for logic          ; 120        ;
+;     -- 7 input functions                    ; 0          ;
+;     -- 6 input functions                    ; 27         ;
+;     -- 5 input functions                    ; 29         ;
+;     -- 4 input functions                    ; 16         ;
+;     -- <=3 input functions                  ; 48         ;
+;                                             ;            ;
+; Dedicated logic registers                   ; 0          ;
+;                                             ;            ;
+; I/O pins                                    ; 101        ;
+;                                             ;            ;
+; Total DSP Blocks                            ; 0          ;
+;                                             ;            ;
+; Maximum fan-out node                        ; invB~input ;
+; Maximum fan-out                             ; 38         ;
+; Total fan-out                               ; 608        ;
+; Average fan-out                             ; 1.89       ;
++---------------------------------------------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                        ;
++---------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Entity Name     ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------+-----------------+--------------+
+; |ULA                            ; 120 (9)             ; 0 (0)                     ; 0                 ; 0          ; 101  ; 0            ; |ULA                                           ; ULA             ; work         ;
+;    |subtrator31:BIT31|          ; 3 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator31:BIT31                         ; subtrator31     ; work         ;
+;       |mux1bit4x1:muxResultado| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator31:BIT31|mux1bit4x1:muxResultado ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator31:BIT31|mux1bit:muxB            ; mux1bit         ; work         ;
+;    |subtrator:BIT0|             ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT0                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT0|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT0|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT10|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT10                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT10|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT10|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT10|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT11|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT11                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT11|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT11|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT11|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT12|            ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT12                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT12|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT12|mux1bit:muxB              ; mux1bit         ; work         ;
+;    |subtrator:BIT13|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT13                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT13|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT13|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT13|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT14|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT14                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT14|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT14|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT14|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT15|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT15                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT15|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT15|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT15|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT16|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT16                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT16|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT16|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT16|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT17|            ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT17                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT17|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT17|mux1bit:muxB              ; mux1bit         ; work         ;
+;    |subtrator:BIT18|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT18                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT18|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT18|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT18|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT19|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT19                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT19|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT19|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT19|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT1|             ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT1                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT1|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT1|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT20|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT20                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT20|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT20|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT20|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT21|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT21                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT21|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT21|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT21|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT22|            ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT22                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT22|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT22|mux1bit:muxB              ; mux1bit         ; work         ;
+;    |subtrator:BIT23|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT23                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT23|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT23|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT23|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT24|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT24                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT24|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT24|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT24|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT25|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT25                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT25|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT25|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT25|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT26|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT26                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT26|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT26|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT26|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT27|            ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT27                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT27|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT27|mux1bit:muxB              ; mux1bit         ; work         ;
+;    |subtrator:BIT28|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT28                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT28|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT28|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT28|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT29|            ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT29                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT29|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT29|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT29|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT2|             ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT2                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT2|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT2|mux1bit:muxB               ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT2|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT30|            ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT30                           ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT30|mux1bit4x1:muxResult      ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT30|mux1bit:muxB              ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT30|somadorCompleto:somador   ; somadorCompleto ; work         ;
+;    |subtrator:BIT3|             ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT3                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT3|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT3|mux1bit:muxB               ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT3|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT4|             ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT4                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT4|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |somadorCompleto:somador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT4|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT5|             ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT5                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT5|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT5|mux1bit:muxB               ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT5|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT6|             ; 3 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT6                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT6|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT6|mux1bit:muxB               ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT6|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT7|             ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT7                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT7|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT7|mux1bit:muxB               ; mux1bit         ; work         ;
+;    |subtrator:BIT8|             ; 5 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT8                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT8|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |mux1bit:muxB|            ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT8|mux1bit:muxB               ; mux1bit         ; work         ;
+;       |somadorCompleto:somador| ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT8|somadorCompleto:somador    ; somadorCompleto ; work         ;
+;    |subtrator:BIT9|             ; 4 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT9                            ; subtrator       ; work         ;
+;       |mux1bit4x1:muxResult|    ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT9|mux1bit4x1:muxResult       ; mux1bit4x1      ; work         ;
+;       |somadorCompleto:somador| ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |ULA|subtrator:BIT9|somadorCompleto:somador    ; somadorCompleto ; work         ;
++---------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+; 4:1                ; 31 bits   ; 62 LEs        ; 62 LEs               ; 0 LEs                  ; No         ; |ULA|subtrator:BIT8|mux1bit4x1:muxResult|saida_MUX ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |ULA ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; larguraDados   ; 32    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT0|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT1|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT2|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT3|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT4|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT5|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT6|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT7|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT8|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT9|mux1bit:muxB ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT10|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT11|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT12|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT13|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT14|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT15|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT16|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT17|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT18|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT19|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT20|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT21|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT22|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT23|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT24|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT25|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT26|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT27|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT28|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT29|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator:BIT30|mux1bit:muxB ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: subtrator31:BIT31|mux1bit:muxB ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; larguradados   ; 1     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "subtrator31:BIT31"                                                                      ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; slt      ; Input  ; Info     ; Stuck at GND                                                                        ;
+; carryout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT30" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT29" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT28" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT27" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT26" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT25" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT24" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT23" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT22" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT21" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT20" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT19" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT18" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT17" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT16" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT15" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT14" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT13" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT12" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT11" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT10" ;
++------+-------+----------+-------------------+
+; Port ; Type  ; Severity ; Details           ;
++------+-------+----------+-------------------+
+; slt  ; Input ; Info     ; Stuck at GND      ;
++------+-------+----------+-------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT9" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT8" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT7" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT6" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT5" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT4" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT3" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT2" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++--------------------------------------------+
+; Port Connectivity Checks: "subtrator:BIT1" ;
++------+-------+----------+------------------+
+; Port ; Type  ; Severity ; Details          ;
++------+-------+----------+------------------+
+; slt  ; Input ; Info     ; Stuck at GND     ;
++------+-------+----------+------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 121                         ;
+;     normal            ; 121                         ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 6                           ;
+;         4 data inputs ; 16                          ;
+;         5 data inputs ; 29                          ;
+;         6 data inputs ; 27                          ;
+; boundary_port         ; 101                         ;
+;                       ;                             ;
+; Max LUT depth         ; 16.00                       ;
+; Average LUT depth     ; 11.90                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:04     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+    Info: Processing started: Mon May 29 17:44:43 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off ULA -c ULA
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file mux1bit.vhd
+    Info (12022): Found design unit 1: mux1bit-comportamento File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit.vhd Line: 14
+    Info (12023): Found entity 1: mux1bit File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ULA-arquitetura File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/ULA.vhd Line: 21
+    Info (12023): Found entity 1: ULA File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/ULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file subtrator31.vhd
+    Info (12022): Found design unit 1: subtrator31-comportamento File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator31.vhd Line: 15
+    Info (12023): Found entity 1: subtrator31 File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator31.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file subtrator.vhd
+    Info (12022): Found design unit 1: subtrator-comportamento File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator.vhd Line: 15
+    Info (12023): Found entity 1: subtrator File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file somadorcompleto.vhd
+    Info (12022): Found design unit 1: somadorCompleto-comportamento File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/somadorCompleto.vhd Line: 13
+    Info (12023): Found entity 1: somadorCompleto File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/somadorCompleto.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2x1.vhd
+    Info (12022): Found design unit 1: muxGenerico2x1-comportamento File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/muxGenerico2x1.vhd Line: 14
+    Info (12023): Found entity 1: muxGenerico2x1 File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/muxGenerico2x1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux1bit4x1.vhd
+    Info (12022): Found design unit 1: mux1bit4x1-comportamento File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 13
+    Info (12023): Found entity 1: mux1bit4x1 File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 4
+Info (12127): Elaborating entity "ULA" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at ULA.vhd(54): object "carryOut31" assigned a value but never read File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/ULA.vhd Line: 54
+Info (12128): Elaborating entity "subtrator" for hierarchy "subtrator:BIT0" File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/ULA.vhd Line: 60
+Info (12128): Elaborating entity "mux1bit" for hierarchy "subtrator:BIT0|mux1bit:muxB" File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator.vhd Line: 23
+Info (12128): Elaborating entity "mux1bit4x1" for hierarchy "subtrator:BIT0|mux1bit4x1:muxResult" File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator.vhd Line: 29
+Info (10041): Inferred latch for "saida_MUX" at mux1bit4x1.vhd(15) File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 15
+Info (12128): Elaborating entity "somadorCompleto" for hierarchy "subtrator:BIT0|somadorCompleto:somador" File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/subtrator.vhd Line: 37
+Info (12128): Elaborating entity "subtrator31" for hierarchy "subtrator31:BIT31" File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/ULA.vhd Line: 339
+Warning (14026): LATCH primitive "subtrator31:BIT31|mux1bit4x1:muxResultado|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT30|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT29|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT28|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT27|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT26|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT25|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT24|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT23|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT22|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT21|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT20|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT19|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT18|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT17|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT16|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT15|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT14|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT13|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT12|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT11|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT10|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT9|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT8|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT7|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT6|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT5|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT4|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT3|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT2|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT1|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Warning (14026): LATCH primitive "subtrator:BIT0|mux1bit4x1:muxResult|saida_MUX" is permanently enabled File: C:/Users/felem/OneDrive - Insper - Institudo de Ensino e Pesquisa/Documentos/2023.1/descomp/ULA/mux1bit4x1.vhd Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 221 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 67 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21061): Implemented 120 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 33 warnings
+    Info: Peak virtual memory: 4856 megabytes
+    Info: Processing ended: Mon May 29 17:45:16 2023
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:00:48
+
+
