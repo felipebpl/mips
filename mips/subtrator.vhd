@@ -13,8 +13,8 @@ entity subtrator is
 end entity;
 
 architecture comportamento of subtrator is
-	signal bInvert: std_logic;
-	signal saidaMuxB: std_logic;
+
+	signal muxB_out: std_logic;
 	signal saidaSomador: std_logic;
 	
 	
@@ -22,29 +22,25 @@ begin
 
 muxB: entity work.mux1bit generic map (larguraDados => 1)
         port map( entradaA_MUX => entradaB,
-                 entradaB_MUX =>  bInvert,
+                 entradaB_MUX =>  not entradaB,
                  seletor_MUX => invB,
-                 saida_MUX => saidaMuxB);
+                 saida_MUX => muxB_out);
 
 somador: entity work.somadorCompleto
         port map( entradaA => entradaA,
-                 entradaB =>  saidaMuxB,
+                 entradaB =>  muxB_out,
 					  vemUm => carryIn,
                  saida => saidaSomador,
                  vaiUm => carryOut);
 					  
 					  
 muxResult :  entity work.mux1bit4x1
-        port map(entradaA_MUX => saidaMuxB and entradaA,
-                 entradaB_MUX =>  saidaMuxB or entradaA,
+        port map(entradaA_MUX => muxB_out and entradaA,
+                 entradaB_MUX =>  muxB_out or entradaA,
 					  entradaC_MUX => saidaSomador,
 					  entradaD_MUX => slt,
                  seletor_MUX => sel,
                  saida_MUX => resultado);
 					  
-					  
-					  
-bInvert <= not entradaB;
-
 
 end architecture;

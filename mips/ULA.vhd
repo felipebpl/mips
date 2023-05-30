@@ -13,7 +13,7 @@ entity ULA is
 		sel : in std_logic_vector (1 downto 0);
 		invB : in std_logic;
 		resultado : out std_logic_vector (larguraDados-1 downto 0);
-		zero: out std_logic
+		flagZero: out std_logic
 	);
 end entity;
 
@@ -53,14 +53,13 @@ architecture arquitetura of ULA is
 	signal carryOut31 : std_logic;
 	
 	signal overflow : std_logic;
-	signal slt_31 : std_logic;
-	signal saida_soma: std_logic;
+	signal saidaSomador: std_logic;
 	
 begin
 	BIT0 : entity work.subtrator
 		port map (entradaA => entradaA(0), entradaB => entradaB(0), sel => sel,
 				invB => invB, carryIn => invB, 
-				slt => slt_31, carryOut => carryOut0, resultado => resultado(0));
+				slt => overflow xor saidaSomador, carryOut => carryOut0, resultado => resultado(0));
 
 	BIT1 : entity work.subtrator
 		port map (entradaA => entradaA(1), entradaB => entradaB(1), sel => sel,
@@ -340,13 +339,11 @@ begin
 		port map (entradaA => entradaA(31), entradaB => entradaB(31), sel => sel,
 				invB => invB, carryIn => carryOut30, 
 				slt => '0', carryOut => carryOut31, resultado => resultado(31), overflow => overflow, 
-				soma_out => saida_soma);
+				soma_out => saidaSomador);
 	
-zero <= '1' when not (resultado(31) or resultado(30) or resultado(29) or resultado(28) or resultado(27) or resultado(26) or resultado(25) or resultado(24) or resultado(23) or resultado(22) or resultado(21) or resultado(20) or resultado(19) or resultado(18) or resultado(17) or resultado(16) or resultado(15) or resultado(14) or resultado(13) or resultado(12) or resultado(11) or resultado(10) or resultado (9) or resultado(8) or resultado(7) or resultado(6) or resultado(5) or resultado(4) or resultado(3) or resultado(2) or resultado(1) or resultado(0)) 
+flagZero <= '1' when not (resultado(31) or resultado(30) or resultado(29) or resultado(28) or resultado(27) or resultado(26) or resultado(25) or resultado(24) or resultado(23) or resultado(22) or resultado(21) or resultado(20) or resultado(19) or resultado(18) or resultado(17) or resultado(16) or resultado(15) or resultado(14) or resultado(13) or resultado(12) or resultado(11) or resultado(10) or resultado (9) or resultado(8) or resultado(7) or resultado(6) or resultado(5) or resultado(4) or resultado(3) or resultado(2) or resultado(1) or resultado(0)) 
 					else '0';
 				
-				
-slt_31 <= overflow xor saida_soma;
 	
 
 end architecture;

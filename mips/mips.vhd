@@ -9,13 +9,7 @@ entity mips is
   );
   port   (
     CLOCK_50 : in std_logic;
---	 Sinais_Controle: out std_logic_vector(8 downto 0);
 	 KEY: in std_logic_vector(3 downto 0); 
---	 ResultOp: out std_logic_vector(31 downto 0); 
---	 Dado_Lido1_Rs: out std_logic_vector(31 downto 0);
---	 Dado_Lido2_Rt: out std_logic_vector(31 downto 0); 
---	 Program_Counter: out std_logic_vector(31 downto 0); 
---	 EntradaB_ULA: out std_logic_vector(31 downto 0);
 	 LEDR  : out std_logic_vector(7 downto 0);
 	 HEX0, HEX1, HEX2, HEX3, HEX4, HEX5: out std_logic_vector(6 downto 0);
 	 SW  : in std_logic_vector(8 downto 0)
@@ -104,7 +98,7 @@ ULA1 : entity work.ULA  generic map(larguraDados => 32)
 			 invB => Ulactrl(2), 
 			 resultado => saidaULA,
 			 sel => ULActrl(1 downto 0),
-			 zero => Z);
+			 flagZero => Z);
 
 			 
 			 
@@ -227,12 +221,6 @@ WrRegd <= Sinais_Controle(6);
 muxRtRd <= Sinais_Controle(7);
 muxBEQJMP <= Sinais_Controle(8);
    
---ResultOp <= saidaULA; 
---Dado_Lido1_Rs <= dadoRs; 
---Dado_Lido2_Rt <= dadoRt; 
---Program_Counter <= Entrada_ROM;
---EntradaB_ULA <= entradaULA_B; 
-
 LEDR(3 downto 0) <= saidamuxHEX(27 downto 24);
 LEDR(7 downto 4) <= saidamuxHEX(31 downto 28);
 

@@ -18,5 +18,5 @@ architecture comportamento of decoderOpcode is
 saida <= "010" when opcode = SW else
          "010" when opcode = LW else
          "110" when opcode = BEQ else
-         "000";  -- NOP 
+         "000";  -- NOP para os entradas Indefinidas
 end architecture;

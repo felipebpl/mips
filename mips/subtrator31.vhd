@@ -13,46 +13,37 @@ entity subtrator31 is
 end entity;
 
 architecture comportamento of subtrator31 is
-	signal inverte_B: std_logic;
-	signal saida_muxB: std_logic;
-	signal saida_soma: std_logic;
-	
-	signal saida_carry_out: std_logic;
-	signal saida_carry_in: std_logic;
+	signal muxB_out: std_logic;
+	signal saidaSomador: std_logic;
 	
 	
 begin
 
 muxB: entity work.mux1bit generic map (larguraDados => 1)
         port map( entradaA_MUX => entradaB,
-                 entradaB_MUX =>  inverte_B,
+                 entradaB_MUX =>  not entradaB,
                  seletor_MUX => invB,
-                 saida_MUX => saida_muxB);
+                 saida_MUX => muxB_out);
 
 somador: entity work.somadorCompleto
         port map( entradaA => entradaA,
-                 entradaB =>  saida_muxB,
+                 entradaB =>  muxB_out,
 					  vemUm => carryIn,
                  saida => soma_out,
                  vaiUm => carryOut);
 					  
 					  
 muxResultado :  entity work.mux1bit4x1
-        port map( entradaA_MUX => saida_muxB and entradaA,
-                 entradaB_MUX =>  saida_muxB or entradaA,
-					  entradaC_MUX => saida_soma,
+        port map( entradaA_MUX => muxB_out and entradaA,
+                 entradaB_MUX =>  muxB_out or entradaA,
+					  entradaC_MUX => saidaSomador,
 					  entradaD_MUX => slt,
                  seletor_MUX => sel,
                  saida_MUX => resultado);
 					  
-					  
-					  
-inverte_B <= not entradaB;
+					 
 
-saida_carry_out <= carryOut;
-saida_carry_in <= carryIn;
-
-overflow <= saida_carry_out xor saida_carry_in;
-saida_soma <= soma_out;
+overflow <= carryOut xor carryIn;
+saidaSomador <= soma_out;
 
 end architecture;
