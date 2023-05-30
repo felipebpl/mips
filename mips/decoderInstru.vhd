@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity decoderInstru is
   port ( opcode : in std_logic_vector(5 downto 0);
 			funct : in std_logic_vector(5 downto 0);
-         saida : out std_logic_vector(14 downto 0)
+         saida : out std_logic_vector(8 downto 0)
   );
 end entity;
 
@@ -22,11 +22,11 @@ architecture comportamento of decoderInstru is
 	alias habrd : std_logic is saida(1);
 	alias habDesvio : std_logic is saida(2);
 	alias muxULA : std_logic is saida(3);
-	alias ULActrl : std_logic_vector(3 downto 0) is saida(7 downto 4);
-	alias muxRtIm : std_logic is saida(8);
-	alias WrRegd : std_logic is saida(9);  
-	alias muxRtRd : std_logic is saida(10);
-	alias muxBEQJMP : std_logic is saida(11);
+	alias tipoR : std_logic is saida(4);
+	alias muxRtIm : std_logic is saida(5);
+	alias WrRegd : std_logic is saida(6);  
+	alias muxRtRd : std_logic is saida(7);
+	alias muxBEQJMP : std_logic is saida(8);
 
 	
   begin
@@ -43,9 +43,8 @@ habDesvio <= '1' when (opcode = BEQ) else
 muxULA <= '1' when (opcode = LW) else
 				'0';
 				
-ULActrl <= "0001" when (opcode = tipo_R) and (funct = ADD) else 
-				"0000" when ((opcode = tipo_R) and (funct = SUB)) or (opcode = BEQ) else
-				"1111";
+tipoR <= '1' when (opcode = tipo_R) else
+			'0';
 			
 muxRtIm <= '0' when (opcode = tipo_R) or (opcode = BEQ) else
 				'1';

@@ -9,7 +9,7 @@ entity mips is
   );
   port   (
     CLOCK_50 : in std_logic;
---	 Sinais_Controle: out std_logic_vector(14 downto 0);
+--	 Sinais_Controle: out std_logic_vector(8 downto 0);
 	 KEY: in std_logic_vector(3 downto 0); 
 --	 ResultOp: out std_logic_vector(31 downto 0); 
 --	 Dado_Lido1_Rs: out std_logic_vector(31 downto 0);
@@ -33,7 +33,7 @@ architecture arquitetura of mips is
 	
 	signal proxPC, proxPC2, proxPC3 : std_logic_vector (31 downto 0);	
 	
-	signal opCode, funct, opcode_out : std_logic_vector (5 downto 0);
+	signal opCode, funct : std_logic_vector (5 downto 0);
 	signal Rs, Rt, Rd, shamt : std_logic_vector (4 downto 0); -- Rd = Rs op Rt
 	
 	signal dadoRs, dadoRt, dadoRd, Dado_Lido  : std_logic_vector(31 downto 0);
@@ -46,7 +46,7 @@ architecture arquitetura of mips is
 	
 	signal display0, display1, display2, display3, display4, display5	: std_logic_vector(6 downto 0);
 	
-	signal Sinais_Controle: std_logic_vector(14 downto 0);
+	signal Sinais_Controle: std_logic_vector(8 downto 0);
 
 
 begin
@@ -155,7 +155,7 @@ ExtSig : entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 1
 						  estendeSinal_OUT =>  sigExt);
 						  
 ULA_UC: entity work.ucULA  
-			 port map( opCode => opCode_out,
+			 port map( opCode => opCode,
 			 funct => funct,
 			 tipo_r => tipoR,
 			 saida => ULActrl);
@@ -222,11 +222,10 @@ habrd <= Sinais_Controle(1);
 BEQ <= Sinais_Controle(2);
 muxULA <= Sinais_Controle(3);
 tipoR <= Sinais_Controle(4);
-opcode_out <= Sinais_Controle(10 downto 5); 
-muxRtIm <= Sinais_Controle(11);
-WrRegd <= Sinais_Controle(12);
-muxRtRd <= Sinais_Controle(13);
-muxBEQJMP <= Sinais_Controle(14);
+muxRtIm <= Sinais_Controle(5);
+WrRegd <= Sinais_Controle(6);
+muxRtRd <= Sinais_Controle(7);
+muxBEQJMP <= Sinais_Controle(8);
    
 --ResultOp <= saidaULA; 
 --Dado_Lido1_Rs <= dadoRs; 
