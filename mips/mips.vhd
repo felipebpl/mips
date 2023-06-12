@@ -132,13 +132,13 @@ MUXMEM :  entity work.muxGenerico4x1  generic map (larguraDados => 32)
 MUXBEQBNE : entity work.mux1bit generic map (larguraDados => 1)
 				port map(entradaA_MUX => not Z,
 							entradaB_MUX => Z,
-							seletor_MUX => Sinais_Controle(3),
+							seletor_MUX => BEQ,
 							saida_MUX => saidaBEQBNE);
 			 
 MUXINC :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
 			 port map(entradaA_MUX => proxPC,
 			 entradaB_MUX => saidaInc2,
-			 seletor_MUX => ((Sinais_Controle(3) or Sinais_Controle(2)) and saidaBEQBNE),
+			 seletor_MUX => ((BEQ or BNE) and saidaBEQBNE),
 			 saida_MUX => proxPC2);	
 			 
 MUXJMP :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
