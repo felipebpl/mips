@@ -32,7 +32,7 @@ architecture arquitetura of mips is
 	
 	signal dadoRs, dadoRt, dadoRd, Dado_Lido  : std_logic_vector(31 downto 0);
 	
-	signal habwr, habrd, BEQ, BNE, muxRtIm, WrRegd, Z, muxBEQJMP, JR, saidaBEQBNE : std_logic;
+	signal habwr, habrd, BEQ, BNE, muxRtIm, WrRegd, Z, muxBEQJMP, JR, saidaBEQBNE, habSLL, habSRL : std_logic;
 	signal muxULA, muxRtRd : std_logic_vector(1 downto 0);
 	signal ULActrl : std_logic_vector (2 downto 0);
 	
@@ -41,12 +41,15 @@ architecture arquitetura of mips is
 	
 	signal display0, display1, display2, display3, display4, display5	: std_logic_vector(6 downto 0);
 	
-	signal Sinais_Controle: std_logic_vector(13 downto 0);
+	signal Sinais_Controle: std_logic_vector(15 downto 0);
 	
 	signal ORIANDI: std_logic;
 	
 	signal saidaLUI: std_logic_vector(31 downto 0);
 	
+	signal saida_SHIFT: std_logic_vector(31 downto 0);
+	
+	signal saida_mux_SHIFT : std_logic_vector(31 downto 0);
 
 begin
 gravar:  if simulacao generate
@@ -129,6 +132,12 @@ MUXMEM :  entity work.muxGenerico4x1  generic map (larguraDados => 32)
 			 seletor_MUX => muxULA,
 			 saida_MUX => saidaMuxM);	
 			 
+MUXSHIFT : entity work.muxGenerico2x1 generic map (larguraDados => 32)
+				port map(entradaA_MUX => saidaMuxM,
+							entradaB_MUX => saida_SHIFT,
+							seletor_MUX => habSLL or habSRL,
+							saida_MUX => saida_mux_SHIFT);
+			 
 MUXBEQBNE : entity work.mux1bit generic map (larguraDados => 1)
 				port map(entradaA_MUX => not Z,
 							entradaB_MUX => Z,
@@ -172,6 +181,13 @@ ExtSig : entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 1
 ExtLUI : entity work.estendeSinalLUI
 			port map (estendeSinalLUI_IN => Saida_ROM(15 downto 0),
 							estendeSinalLUI_OUT => saidaLUI);
+							
+Ext : entity work.Shifter
+		port map (entrada => dadoRt,
+					shamt => shamt,
+					SIG_SLL => habSLL,
+					SIG_SRL => habSRL,
+					saida => saida_SHIFT);
 	
 ULA_UC: entity work.ucULA  
 			 port map( opCode => opCode,
@@ -248,6 +264,8 @@ ORIANDI <= Sinais_Controle(9);
 muxRtRd <= Sinais_Controle(11 downto 10);
 muxBEQJMP <= Sinais_Controle(12);
 JR <= Sinais_Controle(13);
+habSRL <= Sinais_Controle(14);
+habSLL <= Sinais_Controle(15);
    
 LEDR(3 downto 0) <= saidamuxHEX(27 downto 24);
 LEDR(7 downto 4) <= saidamuxHEX(31 downto 28);
