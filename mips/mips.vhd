@@ -25,14 +25,15 @@ architecture arquitetura of mips is
 	signal Entrada_ROM : std_logic_vector(31 downto 0);
 	signal Saida_ROM : std_logic_vector(31 downto 0);
 	
-	signal proxPC, proxPC2, proxPC3 : std_logic_vector (31 downto 0);	
+	signal proxPC, proxPC2, proxPC3, proxPC4 : std_logic_vector (31 downto 0);	
 	
 	signal opCode, funct : std_logic_vector (5 downto 0);
 	signal Rs, Rt, Rd, shamt : std_logic_vector (4 downto 0); -- Rd = Rs op Rt
 	
 	signal dadoRs, dadoRt, dadoRd, Dado_Lido  : std_logic_vector(31 downto 0);
 	
-	signal habwr, habrd, BEQ, muxULA, muxRtIm, WrRegd, muxRtRd, Z, muxBEQJMP : std_logic;
+	signal habwr, habrd, BEQ, BNE, muxRtIm, WrRegd, Z, muxBEQJMP, JR, saidaBEQBNE : std_logic;
+	signal muxULA, muxRtRd : std_logic_vector(1 downto 0);
 	signal ULActrl : std_logic_vector (2 downto 0);
 	
 	signal saidaMUXRTRD : std_logic_vector (4 downto 0);
@@ -40,8 +41,12 @@ architecture arquitetura of mips is
 	
 	signal display0, display1, display2, display3, display4, display5	: std_logic_vector(6 downto 0);
 	
-	signal Sinais_Controle: std_logic_vector(8 downto 0);
-
+	signal Sinais_Controle: std_logic_vector(13 downto 0);
+	
+	signal ORIANDI: std_logic;
+	
+	signal saidaLUI: std_logic_vector(31 downto 0);
+	
 
 begin
 gravar:  if simulacao generate
@@ -55,7 +60,7 @@ end generate;
 
 
 PC : entity work.registradorGenerico   generic map (larguraDados => larguraEnderecos)
-          port map (DIN => proxPC3, 
+          port map (DIN => proxPC4, 
 			 DOUT => Entrada_ROM, 
 			 ENABLE => '1', 
 			 CLK => CLK, 
@@ -101,10 +106,11 @@ ULA1 : entity work.ULA  generic map(larguraDados => 32)
 			 flagZero => Z);
 
 			 
-			 
-MUXREG :  entity work.muxGenerico2x1  generic map (larguraDados => 5)
+MUXREG :  entity work.muxGenerico4x1  generic map (larguraDados => 5)
 			 port map( entradaA_MUX => Rt,
 			 entradaB_MUX => Rd,
+			 entradaC_MUX => "11111",
+			 entradaD_MUX => "00000",
 			 seletor_MUX => muxRtRd,
 			 saida_MUX => saidaMUXRTRD);	
 			
@@ -115,16 +121,24 @@ MUXIM :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
 			 saida_MUX => entradaULA_B);	
 			 
 		
-MUXMEM :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
+MUXMEM :  entity work.muxGenerico4x1  generic map (larguraDados => 32)
 			 port map( entradaA_MUX => saidaULA,
 			 entradaB_MUX => Dado_Lido,
+			 entradaC_MUX => proxPC,
+			 entradaD_MUX => saidaLUI,
 			 seletor_MUX => muxULA,
 			 saida_MUX => saidaMuxM);	
 			 
+MUXBEQBNE : entity work.mux1bit generic map (larguraDados => 1)
+				port map(entradaA_MUX => not Z,
+							entradaB_MUX => Z,
+							seletor_MUX => Sinais_Controle(3),
+							saida_MUX => saidaBEQBNE);
+			 
 MUXINC :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
-			 port map( entradaA_MUX => proxPC,
+			 port map(entradaA_MUX => proxPC,
 			 entradaB_MUX => saidaInc2,
-			 seletor_MUX => BEQ and Z,
+			 seletor_MUX => ((Sinais_Controle(3) or Sinais_Controle(2)) and saidaBEQBNE),
 			 saida_MUX => proxPC2);	
 			 
 MUXJMP :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
@@ -132,6 +146,12 @@ MUXJMP :  entity work.muxGenerico2x1  generic map (larguraDados => 32)
 			 entradaB_MUX => proxPC(31 downto 28) & Saida_ROM(25 downto 0) & "00",
 			 seletor_MUX => muxBEQJMP,
 			 saida_MUX => proxPC3);
+			 
+MUXJR : entity work.muxGenerico2x1 generic map (larguraDados => 32)
+			port map (entradaA_MUX => proxPC3,
+						entradaB_MUX => dadoRs,
+						seletor_MUX => JR, 
+						saida_MUX => proxPC4);
 			 
 RAM : entity work.RAMMIPS
 		generic map (dataWidth => 32, addrWidth => 32)
@@ -146,8 +166,13 @@ RAM : entity work.RAMMIPS
 		
 ExtSig : entity work.estendeSinalGenerico   generic map (larguraDadoEntrada => 16, larguraDadoSaida => 32)
           port map (estendeSinal_IN => Saida_ROM(15 downto 0),
+							ORIANDI => ORIANDI,
 						  estendeSinal_OUT =>  sigExt);
-						  
+	
+ExtLUI : entity work.estendeSinalLUI
+			port map (estendeSinalLUI_IN => Saida_ROM(15 downto 0),
+							estendeSinalLUI_OUT => saidaLUI);
+	
 ULA_UC: entity work.ucULA  
 			 port map( opCode => opCode,
 			 funct => funct,
@@ -213,13 +238,16 @@ funct <= Saida_ROM(5 downto 0);
 			 
 habwr <= Sinais_Controle(0);
 habrd <= Sinais_Controle(1);
-BEQ <= Sinais_Controle(2);
-muxULA <= Sinais_Controle(3);
-tipoR <= Sinais_Controle(4);
-muxRtIm <= Sinais_Controle(5);
-WrRegd <= Sinais_Controle(6);
-muxRtRd <= Sinais_Controle(7);
-muxBEQJMP <= Sinais_Controle(8);
+BNE <= Sinais_Controle(2);
+BEQ <= Sinais_Controle(3);
+muxULA <= Sinais_Controle(5 downto 4);
+tipoR <= Sinais_Controle(6);
+muxRtIm <= Sinais_Controle(7);
+WrRegd <= Sinais_Controle(8);
+ORIANDI <= Sinais_Controle(9);
+muxRtRd <= Sinais_Controle(11 downto 10);
+muxBEQJMP <= Sinais_Controle(12);
+JR <= Sinais_Controle(13);
    
 LEDR(3 downto 0) <= saidamuxHEX(27 downto 24);
 LEDR(7 downto 4) <= saidamuxHEX(31 downto 28);
